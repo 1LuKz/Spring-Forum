@@ -4,7 +4,6 @@ import com.springforum.Spring.Forum.domain.User;
 import com.springforum.Spring.Forum.dto.UserDTO;
 import com.springforum.Spring.Forum.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
