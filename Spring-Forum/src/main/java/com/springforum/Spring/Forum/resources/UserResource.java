@@ -1,5 +1,6 @@
 package com.springforum.Spring.Forum.resources;
 
+import com.springforum.Spring.Forum.domain.Post;
 import com.springforum.Spring.Forum.domain.User;
 import com.springforum.Spring.Forum.dto.UserDTO;
 import com.springforum.Spring.Forum.services.UserService;
@@ -52,5 +53,11 @@ public class UserResource {
         user.setId(id);
         user = userService.update(user);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+        User user = userService.findById(id);
+        return ResponseEntity.ok().body(user.getPosts());
     }
 }
