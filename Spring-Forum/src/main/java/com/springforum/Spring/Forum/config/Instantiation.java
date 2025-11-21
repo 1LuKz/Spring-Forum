@@ -3,6 +3,7 @@ package com.springforum.Spring.Forum.config;
 import com.springforum.Spring.Forum.domain.Post;
 import com.springforum.Spring.Forum.domain.User;
 import com.springforum.Spring.Forum.dto.AuthorDTO;
+import com.springforum.Spring.Forum.dto.CommentDTO;
 import com.springforum.Spring.Forum.repository.PostRepository;
 import com.springforum.Spring.Forum.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,12 @@ public class Instantiation implements CommandLineRunner {
 
         Post firstPost = new Post(null, simpleDateFormat.parse("29/01/2025"), "New albums", "I'm listening to zutomayo's new album!", new AuthorDTO(lucas));
         Post secondPost = new Post(null, simpleDateFormat.parse("05/10/2024"), "New music", "Guys the new single is coming soon", new AuthorDTO(miku));
+
+        CommentDTO firstComment = new CommentDTO("Thanks! That's really cool.", simpleDateFormat.parse("30/01/2025"), new AuthorDTO(zutomayo));
+        CommentDTO secondComment = new CommentDTO("I'll listen", simpleDateFormat.parse("06/10/2024"), new AuthorDTO(lucas));
+
+        firstPost.getComments().add(firstComment);
+        secondPost.getComments().add(secondComment);
 
         postRepository.saveAll(Arrays.asList(firstPost, secondPost));
 
